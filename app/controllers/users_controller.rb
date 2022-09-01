@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    rescue_from ActiveRecord::StatementInvalid with: :creation_error
+    rescue_from ActiveRecord::RecordInvalid, with: :creation_error
     def create
         user = User.create!(user_params)
         session[:user_id] = user.id
